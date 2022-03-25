@@ -1,4 +1,4 @@
-#Box Generator Assignment
+# Box Generator Assignment
 
 This assignment was meant to test our ability to use CSS styling in React as well as use map(). Here are the details:
 
