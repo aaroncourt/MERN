@@ -2,9 +2,13 @@
 
 This assignment was meant to test our ability to use CSS styling in React as well as use map(). Here are the details:
 
-"reate a component with a form inside which accepts a color. When the form is submitted, add a box to the set of boxes with the appropriate color. You may use whichever method of styling you prefer...The boxes should appear next to one another and wrap around if needed."
+"Create a component with a form inside which accepts a color. When the form is submitted, add a box to the set of boxes with the appropriate color. You may use whichever method of styling you prefer...The boxes should appear next to one another and wrap around if needed."
 
-
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
 
 # Getting Started with Create React App
 
