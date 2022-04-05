@@ -18,7 +18,7 @@ Here are the details:
 > - phoneNumber
 > - email
 > - password
-
+>
 > Company Object:
 > - _id
 > - name
