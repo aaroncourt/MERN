@@ -6,13 +6,13 @@ Here are the details:
 
 >In this assignment, we will be using 2 javascript libraries to create a simple API that generates a User and/or Company depending on the route:
 
->Express (Server)
+Express (Server)
 
->Faker (Fake data generator)
+Faker (Fake data generator)
 
->Go ahead and follow the checklist below using the 2 classes below:
+Go ahead and follow the checklist below using the 2 classes below:
 
->User Object:
+User Object:
 >_id
 firstName
 lastName
