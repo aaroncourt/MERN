@@ -13,11 +13,11 @@ Here are the details:
 
 >User Object:
 >_id
->firstName
->lastName
->phoneNumber
->email
->password
+firstName
+lastName
+phoneNumber
+email
+password
 
 >Company Object:
 >_id
