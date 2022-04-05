@@ -12,19 +12,19 @@ Here are the details:
 >Go ahead and follow the checklist below using the 2 classes below:
 >
 >User Object:
->-_id
->-firstName
->-lastName
->-phoneNumber
->-email
->-password
+> - _id
+> - firstName
+> - lastName
+> - phoneNumber
+> - email
+> - password
 
->Company Object:
->-_id
->-name
->-address
->-street
->-city
->-state
->-zipCode
->-country
+> Company Object:
+> - _id
+> - name
+> - address
+> - street
+> - city
+> - state
+> - zipCode
+> - country
