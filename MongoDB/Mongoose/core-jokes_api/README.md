@@ -4,7 +4,7 @@ The purpose of this assignment was to practice using MongoDB, Express, and Mongo
 
 >To solidify what we've read about mongoose commands and express, lets create a new express project from scratch called "Jokes."
 >
->The following wireframe is to show examples of routes (full URLs) and then the returned json.  You are NOT required to create a front end for this >assignment.  Please use Postman to verify your routes and output.
+>The following wireframe is to show examples of routes (full URLs) and then the returned json.  You are NOT required to create a front end for this assignment.  Please use Postman to verify your routes and output.
 >
 >You will need to include the following routes:
 >
