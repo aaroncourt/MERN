@@ -18,7 +18,7 @@ const Number = (props) => {
 const Word = (props) => {
   const {word} = useParams();
   return (
-    <h2>The wrod is: {word}</h2>
+    <h2>The word is: {word}</h2>
   );
 };
 
