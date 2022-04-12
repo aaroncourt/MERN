@@ -1,11 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
-import PersonForm from './components/PersonForm';
+import ProductForm from './components/ProductForm';
 
 function App() {
   return (
     <div className="App">
-      <PersonForm/>
+      <ProductForm/>
     </div>
   );
 }
