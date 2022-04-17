@@ -27,7 +27,7 @@ const AuthorList = (props) => {
                 </thead>
                 <tbody>
                 {
-                    authors.map( (author, index) => {
+                    authors.sort( (a,b) => a.authorName > b.authorName ? 1 : -1).map( (author, index) => {
                         return(
                             <tr key={index}>
                                 <td >{author.authorName}</td>
