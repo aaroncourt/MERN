@@ -29,6 +29,7 @@ const AuthorAdd = (props) => {
 
     return(
         <div>
+            <h2>Favorite Authors</h2>
             <Link to={'/authors'}>Home</Link>
             <p>Add a new author:</p>
             <AuthorForm onSubmitProp={createAuthor} initialAuthorName='' />

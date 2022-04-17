@@ -38,6 +38,7 @@ const AuthorUpdate = () => {
 
     return(
         <div>
+            <h2>Favorite Authors</h2>
             <Link to={'/authors'}>Home</Link>
             <p>Update an author:</p>
             {
