@@ -19,7 +19,7 @@ class Ninja {
 
     drinkSake() {
         this.health += 10
-        console.log(`This character drank some sake. Their health is now ${this.health}`)
+        console.log(`${this.characterName} drank some sake. Their health is now ${this.health}`)
     };
 };
 
