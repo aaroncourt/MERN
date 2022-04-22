@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import {useNavigate} from 'react-router-dom';
+
 
 const ProductForm = (props) => {
     const {onSubmitProp, product} = props;
@@ -7,12 +8,15 @@ const ProductForm = (props) => {
     const [price, setPrice] = useState(product.price);
     const [description, setDescription] = useState(product.description);
 
+    const navigate = useNavigate();
+
     const formHandler = (e) => {
         e.preventDefault();
         onSubmitProp({title, price, description})
         setTitle('');
         setPrice('');
         setDescription('');
+        navigate('/api/products')
     };
 
     return(
