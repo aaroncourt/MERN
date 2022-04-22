@@ -1,7 +1,7 @@
 class Ninja {
-    constructor(name, health) {
-        this.characterName = name;
-        this.health = health;
+    constructor(obj) {
+        this.characterName = obj.name;
+        this.health = obj.health;
         this.speed = 3;
         this.strentgh = 3;
     };
@@ -43,12 +43,18 @@ class Sensi extends Ninja {
 
 };
 
-const zenyatta = new Sensi("Zenyatta");
-zenyatta.sayName();
-zenyatta.showSensiStats();
-zenyatta.speakWisdom();
-console.log();
-const genji = new Ninja('Genji', 100);
+// const zenyatta = new Sensi("Zenyatta");
+// zenyatta.sayName();
+// zenyatta.showSensiStats();
+// zenyatta.speakWisdom();
+// console.log();
+
+genjiData = {
+    name: 'Genji',
+    health: 1000
+}
+
+const genji = new Ninja(genjiData);
 genji.sayName();
 genji.showStats();
 genji.drinkSake();

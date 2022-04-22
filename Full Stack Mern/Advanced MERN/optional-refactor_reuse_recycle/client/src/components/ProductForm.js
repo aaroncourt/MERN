@@ -2,12 +2,10 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const ProductForm = (props) => {
-    const {onSubmitProp, initialTitle, intialPrice, initialDescription} = props;
-    const [title, setTitle] = useState(initialTitle);
-    const [price, setPrice] = useState(intialPrice);
-    const [description, setDescription] = useState(initialDescription);
-
-    console.log(`This is the price: ${price}`)
+    const {onSubmitProp, product} = props;
+    const [title, setTitle] = useState(product.title);
+    const [price, setPrice] = useState(product.price);
+    const [description, setDescription] = useState(product.description);
 
     const formHandler = (e) => {
         e.preventDefault();

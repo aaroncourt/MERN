@@ -6,6 +6,11 @@ import ProductList from '../components/ProductList';
 const Main = () => {
 
     const [products, setProducts] = useState([]);
+    const product = {
+        title: '',
+        price: '',
+        description: '',
+    }
 
     useEffect( () => {
         axios.get('http://localhost:8000/api/products')
@@ -43,7 +48,7 @@ const Main = () => {
 
     return(
         <div>
-            <ProductForm onSubmitProp={createProduct} initialTitle='' initialPrice='' intialDescription='' />
+            <ProductForm onSubmitProp={createProduct} product={product} />
             <hr/>
             <ProductList products={products} removeFromDom={removeFromDom} />
         </div>

@@ -15,7 +15,7 @@ const ProductUpdate = (props) => {
             .then(res => {
                 console.log(res.data)
                 setProduct(res.data)
-                {product && setLoaded(true);}
+                setLoaded(true);
             })
             .catch(err => console.log(err))
             
@@ -33,7 +33,7 @@ const ProductUpdate = (props) => {
         <div>
             <h2>Update a Product</h2>
                 {
-                    loaded && <ProductForm onSubmitProp={updateProduct} initialTitle={product.title} initialPrice={product.price} initialDescription={product.initialDescription} />        
+                    loaded && <ProductForm onSubmitProp={updateProduct} product={product} />        
                 }
         </div>
     );
