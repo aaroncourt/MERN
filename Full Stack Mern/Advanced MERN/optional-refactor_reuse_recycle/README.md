@@ -1,4 +1,4 @@
-# Product Manager 3
+# Refactor, Reuse, Recycle
 
 The purpose of this assignment was to continue to practice setting up a full-stack React application with modularized files using Mongoose, MongoDB, Express, Axios, and CORS technology. This assignment allowed us to add update and delete capability to the application thereby making it a full CRUD application. 
 
