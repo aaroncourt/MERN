@@ -1,0 +1,451 @@
+> use my_first_db
+switched to db my_first_db
+> db.createCollection('students')
+{ "ok" : 1 }
+> db.students.insert({name: "Bruce Wayne", home_state: "NY", lucky_number: 8, birthday: "February 19, 1978" })
+WriteResult({ "nInserted" : 1 })
+> db.students.insert({name: "Alfred Pennyworth, home_state: "NY", lucky_number: 13, birthday: "August 16, 1943" })
+uncaught exception: SyntaxError: missing } after property list :
+@(shell):1:59
+> db.students.insert({name: "Alfred Pennyworth", home_state: "NY", lucky_number: 13, birthday: "August 16, 1943" })
+WriteResult({ "nInserted" : 1 })
+> db.students.insert({name: "Selena Kyle", home_state: "NY", lucky_number: 9, birthday: "September 21, 1985" })
+WriteResult({ "nInserted" : 1 })
+> db.students.insert({name: "Dick Grayson", home_state: "NY", lucky_number: 2, birthday: "March 20, 1996" })
+WriteResult({ "nInserted" : 1 })
+> db.students.insert({name: "Jason Todd", home_state: "NY", lucky_number: 7, birthday: "August 16, 2000" })
+WriteResult({ "nInserted" : 1 })
+> db.my_first_db.find()
+> db.students.find()
+{ "_id" : ObjectId("624e84cb076f837b60a95923"), "name" : "Bruce Wayne", "home_state" : "NY", "lucky_number" : 8, "birthday" : "February 19, 1978" }
+{ "_id" : ObjectId("624e85c1076f837b60a95924"), "name" : "Alfred Pennyworth", "home_state" : "NY", "lucky_number" : 13, "birthday" : "August 16, 1943" }
+{ "_id" : ObjectId("624e8607076f837b60a95925"), "name" : "Selena Kyle", "home_state" : "NY", "lucky_number" : 9, "birthday" : "September 21, 1985" }
+{ "_id" : ObjectId("624e86d5076f837b60a95926"), "name" : "Dick Grayson", "home_state" : "NY", "lucky_number" : 2, "birthday" : "March 20, 1996" }
+{ "_id" : ObjectId("624e872b076f837b60a95927"), "name" : "Jason Todd", "home_state" : "NY", "lucky_number" : 7, "birthday" : "August 16, 2000" }
+> db.students.find().pretty
+function() {
+    this._prettyShell = true;
+    return this;
+}
+> db.students.find().pretty()
+{
+        "_id" : ObjectId("624e84cb076f837b60a95923"),
+        "name" : "Bruce Wayne",
+        "home_state" : "NY",
+        "lucky_number" : 8,
+        "birthday" : "February 19, 1978"
+}
+{
+        "_id" : ObjectId("624e85c1076f837b60a95924"),
+        "name" : "Alfred Pennyworth",
+        "home_state" : "NY",
+        "lucky_number" : 13,
+        "birthday" : "August 16, 1943"
+}
+{
+        "_id" : ObjectId("624e8607076f837b60a95925"),
+        "name" : "Selena Kyle",
+        "home_state" : "NY",
+        "lucky_number" : 9,
+        "birthday" : "September 21, 1985"
+}
+{
+        "_id" : ObjectId("624e86d5076f837b60a95926"),
+        "name" : "Dick Grayson",
+        "home_state" : "NY",
+        "lucky_number" : 2,
+        "birthday" : "March 20, 1996"
+}
+{
+        "_id" : ObjectId("624e872b076f837b60a95927"),
+        "name" : "Jason Todd",
+        "home_state" : "NY",
+        "lucky_number" : 7,
+        "birthday" : "August 16, 2000"
+}
+> db.students.update({name: "Dick Grayson"}, {$set {home_state: "CA"}})
+uncaught exception: SyntaxError: missing : after property id :
+@(shell):1:49
+> db.students.update({name: "Dick Grayson"}, {$set: {home_state: "CA"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.update({name: "Selena Kyle"}, {$set: {home_state: "WA"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.update({name: "Jason Todd"}, {$set: {home_state: "WA"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.find({home_state: "CA"}).pretty()
+{
+        "_id" : ObjectId("624e86d5076f837b60a95926"),
+        "name" : "Dick Grayson",
+        "home_state" : "CA",
+        "lucky_number" : 2,
+        "birthday" : "March 20, 1996"
+}
+> db.students.find({home_state: "WA"}).pretty()
+{
+        "_id" : ObjectId("624e8607076f837b60a95925"),
+        "name" : "Selena Kyle",
+        "home_state" : "WA",
+        "lucky_number" : 9,
+        "birthday" : "September 21, 1985"
+}
+{
+        "_id" : ObjectId("624e872b076f837b60a95927"),
+        "name" : "Jason Todd",
+        "home_state" : "WA",
+        "lucky_number" : 7,
+        "birthday" : "August 16, 2000"
+}
+> db.students.find({lucky_number: {$gt: 3}}).pretty()
+{
+        "_id" : ObjectId("624e84cb076f837b60a95923"),
+        "name" : "Bruce Wayne",
+        "home_state" : "NY",
+        "lucky_number" : 8,
+        "birthday" : "February 19, 1978"
+}
+{
+        "_id" : ObjectId("624e85c1076f837b60a95924"),
+        "name" : "Alfred Pennyworth",
+        "home_state" : "NY",
+        "lucky_number" : 13,
+        "birthday" : "August 16, 1943"
+}
+{
+        "_id" : ObjectId("624e8607076f837b60a95925"),
+        "name" : "Selena Kyle",
+        "home_state" : "WA",
+        "lucky_number" : 9,
+        "birthday" : "September 21, 1985"
+}
+{
+        "_id" : ObjectId("624e872b076f837b60a95927"),
+        "name" : "Jason Todd",
+        "home_state" : "WA",
+        "lucky_number" : 7,
+        "birthday" : "August 16, 2000"
+}
+> db.students.find({lucky_number: {$lte: 10}}).pretty()
+{
+        "_id" : ObjectId("624e84cb076f837b60a95923"),
+        "name" : "Bruce Wayne",
+        "home_state" : "NY",
+        "lucky_number" : 8,
+        "birthday" : "February 19, 1978"
+}
+{
+        "_id" : ObjectId("624e8607076f837b60a95925"),
+        "name" : "Selena Kyle",
+        "home_state" : "WA",
+        "lucky_number" : 9,
+        "birthday" : "September 21, 1985"
+}
+{
+        "_id" : ObjectId("624e86d5076f837b60a95926"),
+        "name" : "Dick Grayson",
+        "home_state" : "CA",
+        "lucky_number" : 2,
+        "birthday" : "March 20, 1996"
+}
+{
+        "_id" : ObjectId("624e872b076f837b60a95927"),
+        "name" : "Jason Todd",
+        "home_state" : "WA",
+        "lucky_number" : 7,
+        "birthday" : "August 16, 2000"
+}
+> db.students.find({$and: [ {lucky_number: {$gte: 1}}, {lucky_number: {$lte9}}]}).pretty()
+uncaught exception: ReferenceError: $lte9 is not defined :
+@(shell):1:70
+> db.students.find({$and: [ {lucky_number: {$gte: 1}}, {lucky_number: {$lte: 9}}]}).pretty()
+{
+        "_id" : ObjectId("624e84cb076f837b60a95923"),
+        "name" : "Bruce Wayne",
+        "home_state" : "NY",
+        "lucky_number" : 8,
+        "birthday" : "February 19, 1978"
+}
+{
+        "_id" : ObjectId("624e8607076f837b60a95925"),
+        "name" : "Selena Kyle",
+        "home_state" : "WA",
+        "lucky_number" : 9,
+        "birthday" : "September 21, 1985"
+}
+{
+        "_id" : ObjectId("624e86d5076f837b60a95926"),
+        "name" : "Dick Grayson",
+        "home_state" : "CA",
+        "lucky_number" : 2,
+        "birthday" : "March 20, 1996"
+}
+{
+        "_id" : ObjectId("624e872b076f837b60a95927"),
+        "name" : "Jason Todd",
+        "home_state" : "WA",
+        "lucky_number" : 7,
+        "birthday" : "August 16, 2000"
+}
+> db.students.update({}, {$set: {interests: ["coding", "brunch", "MongoDB"]}} )
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.find().pretty()
+{
+        "_id" : ObjectId("624e84cb076f837b60a95923"),
+        "name" : "Bruce Wayne",
+        "home_state" : "NY",
+        "lucky_number" : 8,
+        "birthday" : "February 19, 1978",
+        "interests" : [
+                "coding",
+                "brunch",
+                "MongoDB"
+        ]
+}
+{
+        "_id" : ObjectId("624e85c1076f837b60a95924"),
+        "name" : "Alfred Pennyworth",
+        "home_state" : "NY",
+        "lucky_number" : 13,
+        "birthday" : "August 16, 1943"
+}
+{
+        "_id" : ObjectId("624e8607076f837b60a95925"),
+        "name" : "Selena Kyle",
+        "home_state" : "WA",
+        "lucky_number" : 9,
+        "birthday" : "September 21, 1985"
+}
+{
+        "_id" : ObjectId("624e86d5076f837b60a95926"),
+        "name" : "Dick Grayson",
+        "home_state" : "CA",
+        "lucky_number" : 2,
+        "birthday" : "March 20, 1996"
+}
+{
+        "_id" : ObjectId("624e872b076f837b60a95927"),
+        "name" : "Jason Todd",
+        "home_state" : "WA",
+        "lucky_number" : 7,
+        "birthday" : "August 16, 2000"
+}
+> db.students.updateMany({}, {$addToSet: {interests: ["coding", "brunch", "MongoDB"]}} )
+{ "acknowledged" : true, "matchedCount" : 5, "modifiedCount" : 5 }
+> db.students.find().pretty()
+{
+        "_id" : ObjectId("624e84cb076f837b60a95923"),
+        "name" : "Bruce Wayne",
+        "home_state" : "NY",
+        "lucky_number" : 8,
+        "birthday" : "February 19, 1978",
+        "interests" : [
+                "coding",
+                "brunch",
+                "MongoDB",
+                [
+                        "coding",
+                        "brunch",
+                        "MongoDB"
+                ]
+        ]
+}
+{
+        "_id" : ObjectId("624e85c1076f837b60a95924"),
+        "name" : "Alfred Pennyworth",
+        "home_state" : "NY",
+        "lucky_number" : 13,
+        "birthday" : "August 16, 1943",
+        "interests" : [
+                [
+                        "coding",
+                        "brunch",
+                        "MongoDB"
+                ]
+        ]
+}
+{
+        "_id" : ObjectId("624e8607076f837b60a95925"),
+        "name" : "Selena Kyle",
+        "home_state" : "WA",
+        "lucky_number" : 9,
+        "birthday" : "September 21, 1985",
+        "interests" : [
+                [
+                        "coding",
+                        "brunch",
+                        "MongoDB"
+                ]
+        ]
+}
+{
+        "_id" : ObjectId("624e86d5076f837b60a95926"),
+        "name" : "Dick Grayson",
+        "home_state" : "CA",
+        "lucky_number" : 2,
+        "birthday" : "March 20, 1996",
+        "interests" : [
+                [
+                        "coding",
+                        "brunch",
+                        "MongoDB"
+                ]
+        ]
+}
+{
+        "_id" : ObjectId("624e872b076f837b60a95927"),
+        "name" : "Jason Todd",
+        "home_state" : "WA",
+        "lucky_number" : 7,
+        "birthday" : "August 16, 2000",
+        "interests" : [
+                [
+                        "coding",
+                        "brunch",
+                        "MongoDB"
+                ]
+        ]
+}
+> db.students.update({name: "Bruce Wayne"}, {$pop: {interests: 1} } )
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.find().pretty()
+{
+        "_id" : ObjectId("624e84cb076f837b60a95923"),
+        "name" : "Bruce Wayne",
+        "home_state" : "NY",
+        "lucky_number" : 8,
+        "birthday" : "February 19, 1978",
+        "interests" : [
+                "coding",
+                "brunch",
+                "MongoDB"
+        ]
+}
+{
+        "_id" : ObjectId("624e85c1076f837b60a95924"),
+        "name" : "Alfred Pennyworth",
+        "home_state" : "NY",
+        "lucky_number" : 13,
+        "birthday" : "August 16, 1943",
+        "interests" : [
+                [
+                        "coding",
+                        "brunch",
+                        "MongoDB"
+                ]
+        ]
+}
+{
+        "_id" : ObjectId("624e8607076f837b60a95925"),
+        "name" : "Selena Kyle",
+        "home_state" : "WA",
+        "lucky_number" : 9,
+        "birthday" : "September 21, 1985",
+        "interests" : [
+                [
+                        "coding",
+                        "brunch",
+                        "MongoDB"
+                ]
+        ]
+}
+{
+        "_id" : ObjectId("624e86d5076f837b60a95926"),
+        "name" : "Dick Grayson",
+        "home_state" : "CA",
+        "lucky_number" : 2,
+        "birthday" : "March 20, 1996",
+        "interests" : [
+                [
+                        "coding",
+                        "brunch",
+                        "MongoDB"
+                ]
+        ]
+}
+{
+        "_id" : ObjectId("624e872b076f837b60a95927"),
+        "name" : "Jason Todd",
+        "home_state" : "WA",
+        "lucky_number" : 7,
+        "birthday" : "August 16, 2000",
+        "interests" : [
+                [
+                        "coding",
+                        "brunch",
+                        "MongoDB"
+                ]
+        ]
+}
+> db.students.update( {name: "Bruce Wayne"}, {$setToAll {interests: "Being Batman"} } )
+uncaught exception: SyntaxError: missing : after property id :
+@(shell):1:54
+> db.students.update( {name: "Bruce Wayne"}, {$setToAll: {interests: "Being Batman"} } )
+WriteResult({
+        "nMatched" : 0,
+        "nUpserted" : 0,
+        "nModified" : 0,
+        "writeError" : {
+                "code" : 9,
+                "errmsg" : "Unknown modifier: $setToAll. Expected a valid update modifier or pipeline-style update specified as an array"
+        }
+})
+> db.students.update( {name: "Bruce Wayne"}, {$set {$setToAll: {interests: "Being Batman"} } } )
+uncaught exception: SyntaxError: missing : after property id :
+@(shell):1:49
+> db.students.update( {name: "Bruce Wayne"}, {$set:{$setToAll: {interests: "Being Batman"} } } )
+WriteResult({
+        "nMatched" : 0,
+        "nUpserted" : 0,
+        "nModified" : 0,
+        "writeError" : {
+                "code" : 52,
+                "errmsg" : "The dollar ($) prefixed field '$setToAll' in '$setToAll' is not allowed in the context of an update's replacement document. Consider using an aggregation pipeline with $replaceWith."
+        }
+})
+> db.students.update( {name: "Bruce Wayne"}, {$push {interests: "Being Batman"} } )
+uncaught exception: SyntaxError: missing : after property id :
+@(shell):1:50
+> db.students.update( {name: "Bruce Wayne"}, {$push: {interests: "Being Batman"} } )
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.update( {name: "Selena Kyle"}, {$push: {interests: "Being Batman"} } )
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.update( {name: "Selena Kyle"}, {$pull: {interests: "Being Batman"} } )
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.update( {name: "Selena Kyle"}, {$push: {interests: "Money"} } )
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.update( {name: "Dick Grayson"}, {$push: {interests: "Acrobatics"} } )
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.update( {name: "Jason Todd"}, {$push: {interests: "Being cool"} } )
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.update( {name: "Alfred Pennyworth"}, {$push: {interests: "Butling"} } )
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.update( {name: "Bruce Wayne"}, {$push: {interests: "Taxes"} } )
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.update( {name: "Bruce Wayne"}, {$pull: {interests: "Taxes"} } )
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.remove( {home_state: "CA"} )
+WriteResult({ "nRemoved" : 1 })
+> db.students.remove( {name: "Selena Kyle"} )
+WriteResult({ "nRemoved" : 1 })
+> db.students.remove( {lucky_number: {$gte 5} }, true )
+uncaught exception: SyntaxError: missing : after property id :
+@(shell):1:41
+> db.students.remove( {lucky_number: {$gte: 5} }, true )
+WriteResult({ "nRemoved" : 1 })
+> db.students.update( {}, {$set: {number_of_belts: 0} } )
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.updateMany( {}, {$set: {number_of_belts: 0} } )
+{ "acknowledged" : true, "matchedCount" : 2, "modifiedCount" : 1 }
+> db.students.updateMany( {home_state: "WA"}, {$inc: {number_of_belts: 1} } )
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+> db.students.updateMany( {}, {$rename: {"number_of_belts": "belts_earned"} } )
+{ "acknowledged" : true, "matchedCount" : 2, "modifiedCount" : 2 }
+> db.students.updateMany( {}, {$unset: {lucky_number: ""} } )
+{ "acknowledged" : true, "matchedCount" : 2, "modifiedCount" : 2 }
+> db.students.updateMany( {}, {$set: {updated_on: } } )
+uncaught exception: SyntaxError: expected expression, got '}' :
+@(shell):1:48
+> db.students.updateMany( {}, {$set: {updated_on: "" } } )
+{ "acknowledged" : true, "matchedCount" : 2, "modifiedCount" : 2 }
+> db.students.updateMany( {}, {$currentDate: {lastModified: true, "updated_on": {$type: "timestamp"}  } } )
+{ "acknowledged" : true, "matchedCount" : 2, "modifiedCount" : 2 }
+>
