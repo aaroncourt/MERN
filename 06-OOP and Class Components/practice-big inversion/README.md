@@ -1,3 +1,9 @@
+#Big Inversion
+
+The purpose of this assignment was to practice using class components in React by converting the functional component of a previous assignment into a class component.
+
+Thanks!
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

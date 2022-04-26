@@ -1,3 +1,10 @@
+# Puttin It Together
+
+The purpose of this assignment was to practice using state in class components in React. This builds on the Big Inversion assignment by creating a button that increases a person's age by one.
+
+Thanks,
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
